@@ -12444,7 +12444,39 @@ The above graph shows training and testing curve for score is diverging after ce
 
 <pre><code>Cross-validation is a method for robustly estimating test-set performance (generalization) of a model. Grid-search is a way to select the best of a family of models, parametrized by a grid of parameters. (From web)
 
- A parameter sweep, done by grid search which is simply an exhaustive searching through a manually specified subset of the hyperparameter by scanning the data to configure optimal parameters for a given model. Hyperparameters could be like learning rate, regularization factor, dropout, etc.</code></pre>
+ A parameter sweep, done by grid search which is simply an exhaustive searching through a manually specified subset of the hyperparameter by scanning the data to configure optimal parameters for a given model. Hyperparameters could be like learning rate, regularization factor, dropout, etc.
+
+ Use of GridSearcCV in our project provided the opportunity to optimize our model. In our case we passed cv_sets, max_depths, params, score functions to iterate through different values to find the optimum parameter value and later use it for our model. Cross validation values took care the predictive performance by using 10 sets of data shuffling and then using one set for testing while the others for training etc. max_depth provided guidance that the regressor doesn't go beyond 10 questions before an answer etc. These hyperparameter values passed to grid search optimized which particular param value should be used for our model.
+
+ Following is another example other than our project (Taken from web) where GridSearch for Text feature extraction and showing the given parameters to be executed in GridSearc and the 'best parameters' it found while execution:
+
+    ***************
+
+
+</code></pre>
+<p>Performing grid search...</p>
+<p>pipeline: ['vect', 'tfidf', 'clf']
+parameters:
+    {'clf<strong>alpha': (1.0000000000000001e-05, 9.9999999999999995e-07),
+    'clf</strong>n_iter': (10, 50, 80),
+    'clf<strong>penalty': ('l2', 'elasticnet'),
+    'tfidf</strong>use_idf': (True, False),
+    'vect<strong>max_n': (1, 2),
+    'vect</strong>max_df': (0.5, 0.75, 1.0),
+    'vect__max_features': (None, 5000, 10000, 50000)}</p>
+
+<pre><code>done in 1737.030s
+
+</code></pre>
+<p>Best score: 0.940</p>
+<p>Best parameters set:
+    clf<strong>alpha: 9.9999999999999995e-07
+    clf</strong>n_iter: 50
+    clf<strong>penalty: 'elasticnet'
+    tfidf</strong>use_idf: True
+    vect<strong>max_n: 2
+    vect</strong>max_df: 0.75
+    vect__max_features: 50000</p>
 
 </div>
 </div>
